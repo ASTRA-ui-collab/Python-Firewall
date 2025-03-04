@@ -109,7 +109,3 @@ sudo python3 src/firewall.py
 
 ---
 
-For further support, open an issue in the [GitHub repository](https://github.com/yourusername/python-firewall/issues).
-```
-
-Just copy and paste this into `USAGE.md`, and you're good to go! Let me know if you need any edits.
