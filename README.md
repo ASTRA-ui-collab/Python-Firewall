@@ -24,3 +24,92 @@ cd python-firewall
 
 dependencies
 pip install -r requirements.txt
+
+Here’s the **USAGE.md** in one copy-paste block:  
+
+```md
+# Python Firewall - Usage Guide  
+
+This document explains how to use and configure the Python Firewall.  
+
+---
+
+## **1. Running the Firewall**  
+To start monitoring traffic, run:  
+```bash
+sudo python3 src/firewall.py
+```
+The script will continuously check packets and apply rules.
+
+---
+
+## **2. Managing Firewall Rules**  
+You can add, remove, and list rules using `cli.py`.  
+
+### **Adding Rules**  
+#### **Block an IP**  
+```bash
+python3 src/cli.py --add-ip 192.168.1.100
+```
+#### **Block a Port**  
+```bash
+python3 src/cli.py --add-port 80
+```
+
+---
+
+### **Listing Current Rules**  
+```bash
+python3 src/cli.py --list
+```
+Example output:
+```
+[0] {'block_ip': '192.168.1.100'}
+[1] {'block_port': 80}
+```
+
+---
+
+### **Removing a Rule**  
+To remove rule **[0]**, run:  
+```bash
+python3 src/cli.py --remove 0
+```
+
+---
+
+## **3. Logs & Debugging**  
+All blocked traffic is logged in `logs/`.  
+
+To view logs in real-time:  
+```bash
+tail -f logs/firewall.log
+```
+
+For JSON logs:  
+```bash
+cat logs/firewall.json | jq
+```
+
+---
+
+## **4. Troubleshooting**  
+#### **Permission Denied Error**  
+Make sure you are running the firewall with **sudo**:  
+```bash
+sudo python3 src/firewall.py
+```
+
+#### **Firewall Not Blocking Traffic?**  
+1. Check `iptables` rules:  
+   ```bash
+   sudo iptables -L
+   ```
+2. Verify the rule exists in `rules.json`.  
+
+---
+
+For further support, open an issue in the [GitHub repository](https://github.com/yourusername/python-firewall/issues).
+```
+
+Just copy and paste this into `USAGE.md`, and you're good to go! Let me know if you need any edits.
